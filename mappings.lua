@@ -11,6 +11,7 @@ local maps = {
   n = {
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
+    ["<leader>/"] = false,
     ["<leader>bD"] = {
       function()
         require("astronvim.utils.status").heirline.buffer_picker(
@@ -18,6 +19,29 @@ local maps = {
         )
       end,
       desc = "Pick to close",
+    },
+    ["<leader>D"] = { "<cmd>cd %:h<cr>", desc = "Set Working Directory to Current File" },
+    ["<leader>fa"] = { function() require("telescope.builtin").grep_string() end, desc = "Find word under cursor" },
+    ["<leader>fc"] = {
+      function()
+        local cwd = vim.fn.stdpath "config" .. "/.."
+        local search_dirs = {}
+        for _, dir in ipairs(astronvim.supported_configs) do -- search all supported config locations
+          if dir == astronvim.install.home then dir = dir .. "/lua/user" end -- don't search the astronvim core files
+          if vim.fn.isdirectory(dir) == 1 then table.insert(search_dirs, dir) end -- add directory to search if exists
+        end
+        if vim.tbl_isempty(search_dirs) then -- if no config folders found, show warning
+          utils.notify("No user configuration files found", vim.log.levels.WARN)
+        else
+          if #search_dirs == 1 then cwd = search_dirs[1] end -- if only one directory, focus cwd
+          require("telescope.builtin").find_files {
+            prompt_title = "Config Files",
+            search_dirs = search_dirs,
+            cwd = cwd,
+          } -- call telescope
+        end
+      end,
+      desc = "Find AstroNvim config files",
     },
     ["<leader>fN"] = { "<cmd>Telescope noice<cr>", desc = "Find noice" },
     ["<leader>fp"] = { function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" },
@@ -44,6 +68,7 @@ local maps = {
   x = {},
   o = {},
   v = {
+    ["<leader>/"] = false,
     ["<leader>fr"] = {
       "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
       desc = "Find code refactors",
