@@ -1,6 +1,7 @@
 augroup
 autocmd
 cjk
+cmd
 en
 enum
 eof
@@ -13,7 +14,8 @@ noselect
 null
 nvim
 prod
+sdk
+treesitter
 unix
 unnamedplus
 utf8
-treesitter
