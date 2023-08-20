@@ -9,6 +9,7 @@ return {
     keys = {
       { "<leader>gnt", "<cmd>Neogit<CR>", desc = "Open Neogit" },
     },
+    config = function() require("neogit").setup {} end,
   },
   {
     "lewis6991/gitsigns.nvim",
