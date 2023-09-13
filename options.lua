@@ -7,6 +7,7 @@ return {
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
     spell = true, -- sets vim.opt.spell
     spellfile = vim.fn.expand "~/.config/nvim/lua/user/spell/en.utf-8.add",
+    swapfile = false,
     wrap = false, -- sets vim.opt.wrap
   },
   g = {
