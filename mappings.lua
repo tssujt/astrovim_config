@@ -12,6 +12,8 @@ local maps = {
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
     ["<leader>/"] = false,
+    ["]g"] = false,
+    ["[g"] = false,
     ["<leader>bD"] = {
       function()
         require("astronvim.utils.status").heirline.buffer_picker(
@@ -51,6 +53,8 @@ local maps = {
       desc = "Find words",
     },
     ["<leader>fW"] = false,
+    ["<leader>gj"] = { function() require("gitsigns").next_hunk() end, desc = "Next Git hunk" },
+    ["<leader>gk"] = { function() require("gitsigns").previous_hunk() end, desc = "Previous Git hunk" },
     ["<leader>tu"] = false,
     ["<leader>U"] = { "<cmd>Telescope undo<cr>", desc = "Undo" },
     ["<TAB>"] = {
