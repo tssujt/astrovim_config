@@ -1,1 +1,1 @@
-return "kanagawa-dragon"
+return "kanagawa-lotus"
