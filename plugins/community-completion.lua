@@ -34,7 +34,11 @@ return {
       "zbirenbaum/copilot-cmp",
     },
     opts = function(_, opts)
+      local cmp = require "cmp"
       return require("astronvim.utils").extend_tbl(opts, {
+        mapping = cmp.mapping.preset.insert {
+          ["<C-y>"] = cmp.mapping.confirm { select = true },
+        },
         formatting = {
           format = require("lspkind").cmp_format {
             with_text = true,
