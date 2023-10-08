@@ -18,3 +18,8 @@ if is_available "resession.nvim" then
     end,
   })
 end
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "toml",
+  command = "set tabstop=4 shiftwidth=4 softtabstop=4",
+})
