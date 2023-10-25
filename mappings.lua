@@ -11,9 +11,10 @@ local maps = {
   n = {
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
-    ["<leader>/"] = false,
     ["]g"] = false,
     ["[g"] = false,
+    ["<leader>/"] = false,
+    ["<leader>bd"] = { function() require("astronvim.utils.buffer").close(0) end, desc = "Close current buffer" },
     ["<leader>bD"] = {
       function()
         require("astronvim.utils.status").heirline.buffer_picker(
@@ -22,7 +23,9 @@ local maps = {
       end,
       desc = "Pick to close",
     },
-    ["<leader>D"] = { "<cmd>cd %:h<cr>", desc = "Set Working Directory to Current File" },
+    ["<leader>c"] = false,
+    ["<leader>C"] = false,
+    ["<leader>fl"] = { "<cmd>Neotree reveal reveal_force_cwd<cr>", desc = "Explorer Find File Location" },
     ["<leader>fa"] = { function() require("telescope.builtin").grep_string() end, desc = "Find word under cursor" },
     ["<leader>fc"] = {
       function()
