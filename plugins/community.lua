@@ -5,6 +5,7 @@ return {
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
 
   { import = "astrocommunity.colorscheme.kanagawa-nvim" },
+  { import = "astrocommunity.colorscheme.vscode-nvim" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
 }

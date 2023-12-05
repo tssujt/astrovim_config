@@ -1,1 +1,1 @@
-return "kanagawa-lotus"
+return "vscode"
