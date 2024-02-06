@@ -10,10 +10,11 @@ return {
     return {
       auto_clean_after_session_restore = true,
       close_if_last_window = true,
-      sources = { "filesystem", "buffers", "git_status" },
+      sources = { "filesystem", "buffers", "git_status", "document_symbols" },
       source_selector = {
         winbar = true,
         content_layout = "center",
+        tabs_layout = "focus",
         sources = {
           { source = "filesystem", display_name = get_icon("FolderClosed", 1, true) .. "File" },
           { source = "buffers", display_name = get_icon("DefaultFile", 1, true) .. "Bufs" },
@@ -114,7 +115,8 @@ return {
         end,
       },
       window = {
-        width = 30,
+        position = "left",
+        width = 50,
         mappings = {
           ["<space>"] = false, -- disable space until we figure out which-key disabling
           ["[b"] = "prev_source",
@@ -131,7 +133,7 @@ return {
         filtered_items = {
           visible = false, -- when true, they will just be displayed differently than normal items
           hide_dotfiles = false,
-          hide_gitignored = true,
+          hide_gitignored = false,
           hide_hidden = true, -- only works on Windows for hidden files/directories
           hide_by_name = {
             "node_modules",
