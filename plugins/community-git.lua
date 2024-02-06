@@ -7,7 +7,7 @@ return {
     },
     event = "User AstroGitFile",
     keys = {
-      { "<leader>gnt", "<cmd>Neogit<CR>", desc = "Open Neogit" },
+      { "<leader>gg", "<cmd>Neogit<CR>", desc = "Open Neogit" },
     },
     config = function() require("neogit").setup {} end,
   },
