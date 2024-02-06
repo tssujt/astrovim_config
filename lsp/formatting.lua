@@ -1,21 +1,22 @@
 return {
   format_on_save = {
-    enabled = true, -- enable or disable format on save globally
-    allow_filetypes = { -- enable format on save for specified filetypes only
+    enabled = true,
+    allow_filetypes = {
       "json",
       "go",
-      "python",
       "rust",
     },
-    ignore_filetypes = { -- disable format on save for specified filetypes
+    ignore_filetypes = {
       "markdown",
+      "python",
     },
   },
-  disabled = { -- disable formatting capabilities for the listed language servers
-    -- "lua_ls",
-  },
-  timeout_ms = 10000, -- default format timeout
-  -- filter = function(client) -- fully override the default formatting function
-  --   return true
-  -- end
+  filter = function(client)
+    if vim.bo.filetype == "python" then
+      return client.name == "ruff_lsp"
+    end
+
+    return true
+  end,
+  timeout_ms = 10000,
 }
