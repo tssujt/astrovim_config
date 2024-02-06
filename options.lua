@@ -1,7 +1,7 @@
 -- set vim options here (vim.<first_key>.<second_key> = value)
 return {
   opt = {
-    -- set to true or false etc.
+    background = "dark",
     relativenumber = false, -- sets vim.opt.relativenumber
     number = true, -- sets vim.opt.number
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
