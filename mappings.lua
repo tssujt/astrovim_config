@@ -50,6 +50,7 @@ local maps = {
     },
     ["<leader>fN"] = { "<cmd>Telescope noice<cr>", desc = "Find noice" },
     ["<leader>fp"] = { function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" },
+    ["<leader>fs"] = { function() require('sg.extensions.telescope').fuzzy_search_results() end, desc = "Find SourceGraph" },
     ["<leader>fT"] = { "<cmd>TodoTelescope<cr>", desc = "Find TODOs" },
     ["<leader>fw"] = {
       function() require("telescope").extensions.live_grep_args.live_grep_args() end,

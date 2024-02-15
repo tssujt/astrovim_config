@@ -69,12 +69,21 @@ return {
       return require("astronvim.utils").extend_tbl(opts, {
         mapping = cmp.mapping.preset.insert {
           ["<C-y>"] = cmp.mapping.confirm { select = true },
+          ["<C-a>"] = cmp.mapping.complete {
+            config = {
+              sources = {
+                { name = "copilot" },
+                { name = "cody" },
+              },
+            },
+          },
         },
         formatting = {
           format = require("lspkind").cmp_format {
             with_text = true,
             menu = {
               copilot = "[ Copilot]",
+              cody = "[ Cody]",
               buffer = "[ Buf]",
               nvim_lsp = "[ LSP]",
               luasnip = "[ LSnip]",
