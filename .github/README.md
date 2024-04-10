@@ -1,3 +1,6 @@
+> [!NOTE]
+> Due to migration to v4.0, this config has been archived.
+
 # AstroNvim User Configuration
 
 A user configuration for [AstroNvim](https://github.com/AstroNvim/AstroNvim)
